@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 
 public class LoginTest {
 
@@ -14,10 +14,7 @@ public class LoginTest {
 
     @Before
     public void setUp() {
-        // Manually set the path to the ChromeDriver executable
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\vishalchaudhary\\Downloads\\chromedriver-win64 (3)\\chromedriver-win64\\chromedriver.exe"); // Replace with your actual path
-        // Initialize ChromeDriver
-        driver = new ChromeDriver();
+        driver = WebDriverUtility.getDriver();
     }
 
     @Test
