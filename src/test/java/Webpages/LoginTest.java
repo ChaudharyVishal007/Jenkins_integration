@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Login {
+public class LoginTest {
 
     private WebDriver driver;
 

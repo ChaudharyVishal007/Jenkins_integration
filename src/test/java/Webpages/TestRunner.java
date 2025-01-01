@@ -8,7 +8,7 @@ public class TestRunner {
 
     public static void main(String[] args) {
         // Run the Login class tests
-        Result result = JUnitCore.runClasses(Webpages.Login.class);
+        Result result = JUnitCore.runClasses(Webpages.LoginTest.class);
 
         // Print out the result of the test run
         for (Failure failure : result.getFailures()) {
