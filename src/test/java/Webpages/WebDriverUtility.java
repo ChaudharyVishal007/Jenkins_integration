@@ -2,6 +2,7 @@ package Webpages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class WebDriverUtility {
 
@@ -20,7 +21,13 @@ public class WebDriverUtility {
         // Set the WebDriver system property
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
+          ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless"); // Run in headless mode
+        options.addArguments("--disable-gpu"); // Optional: Disable GPU rendering
+        options.addArguments("--no-sandbox"); // Required for Linux environments like Jenkins
+        options.addArguments("--disable-dev-shm-usage"); // Prevent resource issues in containers
+
         // Return the WebDriver instance
-        return new ChromeDriver();
+        return new ChromeDriver(options);
     }
 }
