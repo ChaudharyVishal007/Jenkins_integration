@@ -4,11 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class WebDriverUtility {
 
     public static WebDriver getDriver() {
         String chromeDriverPath;
-
+      WebDriverManager.chromedriver().setup();
         // Check if running in Jenkins environment
         if (System.getenv("JENKINS_HOME") != null) {
             // Running on Jenkins, use the Linux path for Jenkins
