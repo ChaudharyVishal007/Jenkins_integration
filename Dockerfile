@@ -12,5 +12,5 @@ RUN mvn dependency:go-offline
 COPY src ./src
 
 # Run Maven to build and package the application (skipping tests for faster build)
-RUN mvn clean package -DskipTests
+RUN /bin/sh -c mvn clean package -DskipTests
 
