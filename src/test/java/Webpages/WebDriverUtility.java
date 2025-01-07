@@ -4,13 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class WebDriverUtility {
 
     public static WebDriver getDriver() {
         String chromeDriverPath;
-      WebDriverManager.chromedriver().setup();
+
         // Check if running in Jenkins environment
         if (System.getenv("JENKINS_HOME") != null) {
             // Running on Jenkins, use the Linux path for Jenkins
@@ -20,9 +18,16 @@ public class WebDriverUtility {
         else if (System.getenv("DOCKER") != null) {
             // Running in Docker on Ubuntu, use the Linux path
             chromeDriverPath = "/usr/bin/chromedriver";  // Path inside Docker container
-        } else {
-            // Running locally (on your system), use the local path
+        }
+        // Check if running on Windows
+        else if (System.getProperty("os.name").toLowerCase().contains("win")) {
+            // Running locally on Windows, use the local Windows path
             chromeDriverPath = "C:\\Users\\vishalchaudhary\\Downloads\\chromedriver-win64 (3)\\chromedriver-win64\\chromedriver.exe";  // Local Windows path
+        }
+        // Running on Ubuntu locally
+        else {
+            // Running locally on Ubuntu, use the local Ubuntu path
+            chromeDriverPath = "/usr/bin/chromedriver";  // Local Ubuntu path (if you are on Ubuntu)
         }
 
         // Set the WebDriver system property
