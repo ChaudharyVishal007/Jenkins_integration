@@ -9,7 +9,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Run Maven to build and package the application (skipping tests for faster build)
-RUN mvn clean package -DskipTests
+RUN mvn clean package
 
 # Stage 2: Run the application
 FROM openjdk:21-jdk-slim  
