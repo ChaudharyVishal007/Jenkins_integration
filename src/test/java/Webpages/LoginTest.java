@@ -20,11 +20,11 @@ public class LoginTest {
     @Test
     public void LaunchUrl() {
         // Launch the URL
-        String url = "https://mcqa-shop.larsonjuhl.com/en-US/customer/account/login";
+        String url = "https://www.google.com/";
         driver.get(url);
 
         // Verify the title of the page
-        String expectedTitle = "Customer Login";
+        String expectedTitle = "Google";
         String actualTitle = driver.getTitle();
         assertEquals("The page title should match", expectedTitle, actualTitle);
     }
